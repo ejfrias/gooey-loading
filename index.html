@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name="keywords" content="gooey, effect, inspiration, concept, web design, dribbble, css, svg, filter" />
+	<meta name="description" content="SVG CSS Pre-loader animation by EJ Frias" />
+	<meta name="author" content="EJ Frias" />
+	
+	<title>SVG CSS Pre-loader animation concept based from Kirill's dribbble of Tubik Studio</title>
+	
+	<style>
+		*, *:before, *:after {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+		body, html {
+			background-color: #2a80b9;
+			height: 100%;
+		}
+		.container {
+			height: 100px;
+			margin: -50px auto 0;
+			position: relative;
+			top: 50%;
+			width: 434px;
+			filter: url('#goo');
+			-webkit-filter: url('#goo');
+		}
+		.center, .dot {
+			background-color: #fff;
+			border-radius: 50%;
+			position: absolute;
+		}
+		.center {
+			height: 50px;
+			margin-top: 25px;
+			margin-left: -25px;
+			left: 50%;
+			width: 50px;
+			z-index: 2;
+		}
+		.dot {
+			height: 24px;
+			width: 24px;
+			top: 50%;
+			margin-top: -12px;
+		}
+		
+		.uno {
+			animation: uno 4s cubic-bezier(.53,.38,.37,1) infinite;
+			left: 0;
+		}
+		@keyframes uno {
+			  0% { transform: translate3d(0, 0, 0); }
+			 25% { transform: translate3d(205px, 0, 0); }
+			 50% { transform: translate3d(292px, 0, 0); }
+			 65% { transform: translate3d(205px, 0, 0); }
+			100% { transform: translate3d(0, 0, 0); }
+		}
+		
+		.dos {
+			animation: dos 4s cubic-bezier(.53,.38,.37,1) infinite;
+			left: 59px;
+		}
+		@keyframes dos {
+			  0% { transform: translate3d(0, 0, 0); }
+			 20% { transform: translate3d(146px, 0, 0); }
+			 50% { transform: translate3d(292px, 0, 0); }
+			 70% { transform: translate3d(146px, 0, 0); }
+			100% { transform: translate3d(0, 0, 0); }
+		}
+		
+		.tres {
+			animation: tres 4s cubic-bezier(.53,.38,.37,1) infinite;
+			left: 118px;
+		}
+		@keyframes tres {
+			  0% { transform: translate3d(0, 0, 0); }
+			 15% { transform: translate3d(88px, 0, 0); }
+			 50% { transform: translate3d(292px, 0, 0); }
+			 75% { transform: translate3d(88px, 0, 0); }
+			100% { transform: translate3d(0, 0, 0); }
+		}
+		
+		.center { animation: scaling 6s ease-in-out .2s infinite; }
+		@keyframes scaling {
+			  0% { transform: scale(1); }
+			 12% { transform: scale(1.2); }
+			 20% { transform: scale(.8); }
+			 21% { transform: scale(1.1); }
+			 22% { transform: scale(1); }
+			 33% { transform: scale(1); }
+			 45% { transform: scale(1.2); }
+			 53% { transform: scale(.8); }
+			 54% { transform: scale(1.1); }
+			 55% { transform: scale(1); }
+			 65% { transform: scale(1); }
+			 77% { transform: scale(1.2); }
+			 87% { transform: scale(.8); }
+			 88% { transform: scale(1.1); }
+			 89% { transform: scale(1); }
+			100% { transform: scale(1); }
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<div class="dot uno"></div>
+		<div class="dot dos"></div>
+		<div class="dot tres"></div>
+		<div class="center"></div>
+	</div>
+	
+	<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+		<defs>
+			<filter id="goo">
+				<feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+				<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+				<feBlend in="SourceGraphic" in2="goo" />
+			</filter>
+		</defs>
+	</svg>
+
+</body>
+</html>
